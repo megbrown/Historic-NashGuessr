@@ -1,4 +1,4 @@
-[
+{
     {
         "id": "83003027",
         "name": "Longview",
@@ -612,15 +612,6 @@
         "photo": "grassmere"
     },
     {
-        "id": "89000297",
-        "name": "Weakley--Truett--Clark House",
-        "address": "415 Rosebank Ave.",
-        "lat": 36.1861239,
-        "long": -86.7207136999999,
-        "listdate": "1989",
-        "photo": "weakley-truett-clark"
-    },
-    {
         "id": "90001580",
         "name": "Dozier Farm",
         "address": "8451 River Rd. Pike",
@@ -718,33 +709,6 @@
         "long": -86.7771669999999,
         "listdate": "1982",
         "photo": "bush-herbert-building"
-    },
-    {
-        "id": "95001045",
-        "name": "Dr. Cleo Miller House",
-        "address": "1431 Shelton Ave.",
-        "lat": 36.2102579999999,
-        "long": -86.7204429999999,
-        "listdate": "1995",
-        "photo": "dr-cleo-miller"
-    },
-    {
-        "id": "95001482",
-        "name": "Marathon Motor Works",
-        "address": "1200--1310 and 1305 Clinton St.",
-        "lat": 36.1640554,
-        "long": -86.798582,
-        "listdate": "1996",
-        "photo": "marathon-motor-works"
-    },
-    {
-        "id": "96001516",
-        "name": "Nashville National Cemetery",
-        "address": "1420 Gallatin Rd., S",
-        "lat": 36.2410659,
-        "long": -86.7249029999999,
-        "listdate": "1996",
-        "photo": "nashville-national-cemetery"
     },
     {
         "id": "98000842",
@@ -880,14 +844,5 @@
         "long": -86.7977421,
         "listdate": "2006",
         "photo": "thomas-philips-memorial"
-    },
-    {
-        "id": "07000688",
-        "name": "McGavock--Gatewood--Webb House",
-        "address": "908 Meridian St.",
-        "lat": 36.1877059999999,
-        "long": -86.768451,
-        "listdate": "2007",
-        "photo": "mcgavock-gatewood-webb"
     }
-]
+}
