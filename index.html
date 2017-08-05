@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Historic Places Finder</title>
+</head>
+<body ng-app="FindIt">
+
+	<div map-lazy-load="https://maps.google.com/maps/api/js">
+  	<ng-map center="41,-87" zoom="3"></ng-map>
+	</div>
+
+
+
+	<!-- dependencies -->
+  <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="./lib/node_modules/tether/dist/js/tether.min.js"></script>
+  <script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
+
+  <!-- angular -->
+  <script type="text/javascript" src="./lib/node_modules/angular/angular.min.js"></script>
+  <!-- angular route -->
+  <script type="text/javascript" src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+  <!-- ng-map -->
+  <script type="text/javascript" src="./lib/node_modules/ngmap/build/scripts/ng-map.min.js"></script>
+
+
+
+	<!-- app -->
+	<script type="text/javascript" src="./app/app.js"></script>
+
+	<!-- providers -->
+	<!-- controllers -->
+	<script type="text/javascript" src="./app/controllers/map-controller.js"></script>
+</body>
+</html>
