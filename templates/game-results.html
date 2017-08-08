@@ -1,7 +1,7 @@
 <div ng-include="'templates/navbar.html'"></div>
 
 <h2>Your score: {{score}}</h2>
-<h4>{{message}}</h4>
+<h5>{{message}}</h5>
 
 <div class="google-map">
 	<map center="[36.1627, -86.7816]" zoom="13">
@@ -11,4 +11,4 @@
 
 <button ng-click="playAgain()">Play again</button>
 <button ng-click="savePlace()">Save place</button>
-<button ng-click="">See details</button>
+<button ng-click="seeDetail()">See details</button>

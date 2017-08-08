@@ -43,6 +43,18 @@ findIt.factory("GameFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	return { getAllPlaces, storeUsersScore, storeUsersPlace };
+	let getPlaceDetail = (placeId) => {
+		return $q( (resolve, reject) => {
+			$http.get(`${FirebaseUrl}places.json?orderBy="id"&equalTo="${placeId}"`)
+			.then( (place) => {
+				resolve(place.data);
+			})
+			.catch( (err) => {
+				reject(err);
+			});
+		});
+	};
+
+	return { getAllPlaces, storeUsersScore, storeUsersPlace, getPlaceDetail };
 
 });

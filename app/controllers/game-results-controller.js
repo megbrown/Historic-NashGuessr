@@ -27,4 +27,8 @@ findIt.controller("GameResultsController", function($scope, $timeout, $window, G
 		$window.location.href = "#!/homepage";
 	};
 
+	$scope.seeDetail = () => {
+		$window.location.href = `#!/place/${newGameObj.id}`;
+	};
+
 });

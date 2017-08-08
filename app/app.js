@@ -25,6 +25,10 @@ findIt.config(($routeProvider)=>{
   	templateUrl: "templates/game-results.html",
   	controller: "GameResultsController"
   })
+  .when("/place/:placeId", {
+    templateUrl: "templates/place-detail.html",
+    controller: "PlaceDetailController"
+  })
   .otherwise('/');
 });
 
