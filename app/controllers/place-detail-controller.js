@@ -1,6 +1,6 @@
 "use strict";
 
-findIt.controller("PlaceDetailController", function($scope, $routeParams, GameFactory) {
+findIt.controller("PlaceDetailController", function($scope, $routeParams, $window, GameFactory, GameStorageFactory, UserFactory) {
 
 	let nashville = [36.1627, -86.7816];
 
@@ -17,5 +17,16 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, GameFa
   .catch( (err) => {
   	console.log("error", err);
   });
+
+  let newGameObj = GameStorageFactory.getStoredGameObj();
+
+  $scope.savePlace = () => {
+  	let userPlaceObj = {
+			placeid: newGameObj.id,
+			uid: UserFactory.getUser()
+		};
+		GameFactory.storeUsersPlace(userPlaceObj);
+		$window.location.href = "#!/homepage";
+  };
 
 });
