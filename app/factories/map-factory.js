@@ -27,7 +27,11 @@ findIt.factory("MapFactory", function($q) {
 	      		}
 	    		}
 	  		}
-	 			currentDistance = parseFloat(distance.slice(0, -3));
+	  		if (distance.includes("k")) {
+	  			currentDistance = parseFloat(distance.slice(0, -3));
+	  		} else {
+	  			currentDistance = parseFloat(distance.slice(0, -2)) * 0.001;
+	  		}
 	  		resolve(currentDistance);
 			}
 		});

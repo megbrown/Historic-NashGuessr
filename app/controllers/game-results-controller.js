@@ -4,6 +4,8 @@ findIt.controller("GameResultsController", function($scope, $window, GameStorage
 
   let newGameObj = GameStorageFactory.getStoredGameObj();
 
+  console.log(newGameObj);
+
   $scope.marker = {
     position: [newGameObj.origLat, newGameObj.origLng]
 	};

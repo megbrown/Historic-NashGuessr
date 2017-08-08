@@ -17,14 +17,14 @@ findIt.factory("GameStorageFactory", function() {
 	};
 
 // needs to be score not distance
-	let storeDistance = (distance) => {
-		gameObj.distance = distance.distance;
+	let storeScore = (score) => {
+		gameObj.score = score;
 	};
 
 	let getStoredGameObj = () => {
 		return gameObj;
 	};
 
-	return { storeGameObj, storeUsersGuess, storeDistance, getStoredGameObj };
+	return { storeGameObj, storeUsersGuess, storeScore, getStoredGameObj };
 
 });

@@ -44,12 +44,29 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
 			let newDistance = {
 				distance: MapFactory.getCurrentDistance()
 			};
-			GameStorageFactory.storeDistance(newDistance);
-			console.log("distance?", newDistance);
+			calculateScore(newDistance.distance);
 		});
 		$window.location.href = "#!/results";
 	};
 
+	let score = 0;
 
+  function calculateScore (distance) {
+  	console.log("distance for score", distance);
+  	if (distance <= 0.5) {
+  		score = 100;
+  	} else if (distance > 0.5 && distance <= 1) {
+  		score = 90;
+  	} else if (distance > 1 && distance <= 5) {
+  		score = 75;
+  	} else if (distance > 5 && distance <= 10) {
+  		score = 50;
+  	} else if (distance > 10 && distance <= 20) {
+  		score = 25;
+  	} else {
+  		score = 0;
+  	}
+  	GameStorageFactory.storeScore(score);
+  }
 
 });
