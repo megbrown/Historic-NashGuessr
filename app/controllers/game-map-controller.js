@@ -1,6 +1,6 @@
 "use strict";
 
-findIt.controller("GameMapController", function($scope, $window, NgMap, MapFactory, GameStorageFactory) {
+findIt.controller("GameMapController", function($scope, $window, NgMap, MapFactory, GameFactory, UserFactory, GameStorageFactory) {
 
 	let userGuess = {};
 	let origPlace = {};
@@ -50,8 +50,9 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
 
 	let score = 0;
 	let message = "";
+  let userScoreObj = {};
 
-  function calculateScore (distance) {
+  function calculateScore(distance) {
   	console.log("distance for score", distance);
   	if (distance <= 0.5) {
   		score = 100;
@@ -72,9 +73,21 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   		score = 0;
   		message = "Just go home.";
   	}
-  	GameStorageFactory.storeScore(score, message);
-  	$window.location.href = "#!/results";
-  	// need to store score in firebase along with userid
+
+    GameStorageFactory.storeScore(score, message);
+    storeScore(score);
+
+  }
+
+  function storeScore(score) {
+
+    userScoreObj = {
+      score: score,
+      uid: UserFactory.getUser()
+    };
+
+    GameFactory.storeUsersScore(userScoreObj);
+    $window.location.href = "#!/results";
   }
 
 });
