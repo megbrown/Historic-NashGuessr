@@ -1,6 +1,6 @@
 "use strict";
 
-findIt.controller("GameResultsController", function($scope, $timeout, $window, GameStorageFactory) {
+findIt.controller("GameResultsController", function($scope, $timeout, $window, GameFactory, GameStorageFactory, UserFactory) {
 
 		let newGameObj = GameStorageFactory.getStoredGameObj();
 
@@ -16,6 +16,15 @@ findIt.controller("GameResultsController", function($scope, $timeout, $window, G
 	$scope.playAgain = () => {
 		console.log("clicked 'play again");
 		$window.location.href = "#!/";
+	};
+
+	$scope.savePlace = () => {
+		let userPlaceObj = {
+			placeid: newGameObj.id,
+			uid: UserFactory.getUser()
+		};
+		GameFactory.storeUsersPlace(userPlaceObj);
+		$window.location.href = "#!/homepage";
 	};
 
 });
