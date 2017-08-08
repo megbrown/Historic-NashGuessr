@@ -6,12 +6,16 @@ let findIt = angular.module("FindIt", ["ngRoute", "ngMap"])
 findIt.config(($routeProvider)=>{
   $routeProvider
   .when("/", {
-    templateUrl: 'templates/game-photo.html',
-    controller: 'GamePhotoController'
+    templateUrl: "templates/login.html",
+    controller: "UserController"
+  })
+  .when("/photo", {
+    templateUrl: "templates/game-photo.html",
+    controller: "GamePhotoController"
   })
   .when("/map", {
-  	templateUrl: 'templates/game-map.html',
-    controller: 'GameMapController'
+  	templateUrl: "templates/game-map.html",
+    controller: "GameMapController"
   })
   .when("/results", {
   	templateUrl: "templates/game-results.html",
