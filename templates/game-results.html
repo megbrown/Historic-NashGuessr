@@ -1,7 +1,9 @@
+<div ng-include="'templates/navbar.html'"></div>
+
 <h3>Your score: ???</h3>
 
 <div class="google-map">
-	<map center="[36.1627, -86.7816]" zoom="{{map.zoom}}" ng-click="fetchDistance()">
+	<map center="[36.1627, -86.7816]" zoom="13">
 		  <marker position="{{marker.position}}"></marker>
 	</map>
 </div>

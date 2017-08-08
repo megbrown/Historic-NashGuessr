@@ -27,7 +27,7 @@ findIt.factory("MapFactory", function($q) {
 	      		}
 	    		}
 	  		}
-	 			currentDistance = distance;
+	 			currentDistance = parseFloat(distance.slice(0, -3));
 	  		resolve(currentDistance);
 			}
 		});
