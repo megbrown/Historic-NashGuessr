@@ -1,5 +1,24 @@
-<nav class="nav row" ng-controller="NavController">
-    <a class="nav-link" ng-href="#!/">My Places</a>
-    <a class="nav-link" ng-href="#!/">New Game</a>
-    <a class="nav-link" ng-href="#!/" ng-click="logout()">Logout</a>
-  </nav>
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" ng-controller="NavController">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  	<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<a class="navbar-brand" ng-href="#!/">
+		<img src="images/logo.png" width="75" height="auto" class="d-inline-block align-center" alt="Find It logo"><span class="brand">Historic Place Finder</span>
+	</a>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+  		<li class="nav-item">
+    		<a class="nav-link" ng-href="#!/homepage">My Places</a>
+  		</li>
+  		<li class="nav-item">
+    		<a class="nav-link" ng-href="#!/photo">New Game</a>
+  		</li>
+  		<li class="nav-item">
+    		<a class="nav-link" ng-href="#!/" ng-click="logout()">Logout</a>
+  		</li>
+		</ul>
+	</div>
+</nav>
