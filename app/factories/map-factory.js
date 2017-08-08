@@ -13,6 +13,7 @@ findIt.factory("MapFactory", function($q) {
 		    destinations: [destination],
 		    travelMode:"DRIVING",
 		  }, setDistance);
+
 			function setDistance(response, status) {
 	  		let distance = "";
 	  		if (status == 'OK') {
@@ -21,11 +22,8 @@ findIt.factory("MapFactory", function($q) {
 	    		for (let i = 0; i < origins.length; i++) {
 	      		let results = response.rows[i].elements;
 	      		for (let j = 0; j < results.length; j++) {
-	        		let element = results[j];
-	        		distance = element.distance.text;
-	        		let duration = element.duration.text;
-	        		let from = origins[i];
-	        		let to = destinations[j];
+	        		let data = results[j];
+	        		distance = data.distance.text;
 	      		}
 	    		}
 	  		}
