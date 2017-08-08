@@ -9,6 +9,10 @@ findIt.config(($routeProvider)=>{
     templateUrl: "templates/login.html",
     controller: "UserController"
   })
+  .when("/homepage", {
+    templateUrl: "templates/homepage.html",
+    controller: "HomepageController"
+  })
   .when("/photo", {
     templateUrl: "templates/game-photo.html",
     controller: "GamePhotoController"

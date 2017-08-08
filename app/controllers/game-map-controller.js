@@ -23,7 +23,6 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
 			guessLng: lng
 		};
 		GameStorageFactory.storeUsersGuess(userGuess);
-		console.log("user's guess", userGuess.guessLat, userGuess.guessLng);
 	}
 
 	let nashville = [36.1627, -86.7816];
@@ -53,7 +52,6 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   let userScoreObj = {};
 
   function calculateScore(distance) {
-  	console.log("distance for score", distance);
   	if (distance <= 0.5) {
   		score = 100;
   		message = "You know everything, don't you.";

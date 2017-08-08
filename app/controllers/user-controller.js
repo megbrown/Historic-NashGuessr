@@ -5,7 +5,7 @@ findIt.controller("UserController", function($scope, $window, UserFactory) {
         UserFactory.loginUser()
         .then( (data) => {
             let currentUser = data.user.uid;
-            $window.location.href = '#!/photo';
+            $window.location.href = "#!/homepage";
         });
     };
 });

@@ -13,8 +13,6 @@ findIt.controller("GameResultsController", function($scope, $timeout, $window, G
 	    position: [newGameObj.origLat, newGameObj.origLng]
 		};
 
-		console.log("scope score", $scope.score);
-
 	$scope.playAgain = () => {
 		console.log("clicked 'play again");
 		$window.location.href = "#!/";
