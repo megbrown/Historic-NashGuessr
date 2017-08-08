@@ -46,7 +46,6 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
 			};
 			calculateScore(newDistance.distance);
 		});
-		$window.location.href = "#!/results";
 	};
 
 	let score = 0;
@@ -67,6 +66,8 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   		score = 0;
   	}
   	GameStorageFactory.storeScore(score);
+  	$window.location.href = "#!/results";
+  	// need to store score in firebase along with userid
   }
 
 });

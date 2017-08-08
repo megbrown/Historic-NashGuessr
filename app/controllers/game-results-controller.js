@@ -1,18 +1,30 @@
 "use strict";
 
-findIt.controller("GameResultsController", function($scope, $window, GameStorageFactory) {
+findIt.controller("GameResultsController", function($scope, $timeout, $window, GameStorageFactory) {
 
-  let newGameObj = GameStorageFactory.getStoredGameObj();
+	$scope.score = "";
+	$scope.marker = {};
 
-  console.log(newGameObj);
+	let getScore = () => {
+		let newGameObj = GameStorageFactory.getStoredGameObj();
 
-  $scope.marker = {
-    position: [newGameObj.origLat, newGameObj.origLng]
+	  console.log(newGameObj);
+
+	  $scope.score = newGameObj.score;
+
+	  $scope.marker = {
+	    position: [newGameObj.origLat, newGameObj.origLng]
+		};
+
+		console.log("scope score", $scope.score);
 	};
+
 
 	$scope.playAgain = () => {
 		console.log("clicked 'play again");
 		$window.location.href = "#!/";
 	};
+
+	getScore();
 
 });

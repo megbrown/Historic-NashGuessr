@@ -16,7 +16,6 @@ findIt.factory("GameStorageFactory", function() {
 		gameObj.guessLng = usersGuess.guessLng;
 	};
 
-// needs to be score not distance
 	let storeScore = (score) => {
 		gameObj.score = score;
 	};
