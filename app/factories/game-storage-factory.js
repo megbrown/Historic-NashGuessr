@@ -16,8 +16,9 @@ findIt.factory("GameStorageFactory", function() {
 		gameObj.guessLng = usersGuess.guessLng;
 	};
 
-	let storeScore = (score) => {
+	let storeScore = (score, message) => {
 		gameObj.score = score;
+		gameObj.message = message;
 	};
 
 	let getStoredGameObj = () => {
