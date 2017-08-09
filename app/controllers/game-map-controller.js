@@ -63,7 +63,7 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   		message = "Do better next time.";
   	} else if (distance > 5 && distance <= 10) {
   		score = 50;
-  		message = "Do better next time.";
+  		message = "Do you like being average?";
   	} else if (distance > 10 && distance <= 20) {
   		score = 25;
   		message = "Do you know anything?";
@@ -78,7 +78,6 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   }
 
   function storeScore(score) {
-
     userScoreObj = {
       score: score,
       uid: UserFactory.getUser(),

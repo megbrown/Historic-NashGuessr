@@ -10,9 +10,9 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 		$window.location.href = "#!/photo";
 	};
 
-	$scope.deletePlace = (placeId) => {
+	$scope.deletePlace = (userPlaceKeyId) => {
 		if ($window.confirm("Are you sure you want to delete this place?")) {
-			GameFactory.deletePlace(placeId)
+			GameFactory.deletePlace(userPlaceKeyId)
 			.then( (data) => {
 				$window.location.reload(true);
 			});
@@ -30,8 +30,9 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 		GameFactory.getUsersPlaceIds(currentUser)
 		.then( (userPlaceObj) => {
 			let placeIdArr = [];
-			angular.forEach(userPlaceObj, function(obj) {
+			angular.forEach(userPlaceObj, function(obj, key) {
 				placeIdArr.push(obj.placeid);
+				$scope.userPlaceKeyId = key;
 			});
 			placeIdArr.forEach( (placeId) => {
 				GameFactory.getUsersPlaces(placeId)

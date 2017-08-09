@@ -11,8 +11,11 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
 
   GameFactory.getPlaceDetail($routeParams.placeId)
   .then( (place) => {
-  	console.log("detail place info", place);
-  	$scope.place = place;
+    angular.forEach(place, function(obj) {
+      $scope.place = obj;
+    });
+  	console.log("detail place info", $scope.place);
+  	// $scope.place = place;
   })
   .catch( (err) => {
   	console.log("error", err);

@@ -1,22 +1,29 @@
 <div ng-include="'templates/navbar.html'"></div>
 
-<div ng-repeat="place in place">
-
-	<h2>{{place.name}}</h2>
-	<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/text/{{place.id}}.pdf" target="_blank">National Register Nomination</a>
-	<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/photos/{{place.id}}.pdf" target="_blank">Photos</a>
-
-	<div class="place-detail-image">
-		<img src="../images/{{place.photo}}.png" height="400" width="auto">
+<div class="row">
+	<div class="col-md-4">
+		<h2>{{place.name}}</h2>
 	</div>
-
-	<div class="google-map">
-		<map center="[36.1627, -86.7816]" zoom="{{map.zoom}}"></map>
+	<div class="col-md-3">
+		<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/text/{{place.id}}.pdf" target="_blank">National Register Nomination</a>
 	</div>
-
-	<div>
+	<div class="col-md-3">
+		<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/photos/{{place.id}}.pdf" target="_blank">Photos</a>
+	</div>
+	<div class="col-md-2">
 		<button ng-click="savePlace()">Save place</button>
 	</div>
-
 </div>
+
+<div class="row">
+	<div class="place-detail-image col-md-7">
+		<img src="../images/{{place.photo}}.png" height="400" width="auto">
+	</div>
+	<div class="col-md-5 google-map-detail">
+		<map center="[36.1627, -86.7816]" zoom="14" zoom-controll="false"></map>
+	</div>
+</div>
+
+
+
 

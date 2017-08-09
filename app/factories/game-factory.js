@@ -91,10 +91,11 @@ findIt.factory("GameFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	let deletePlace = (placeId) => {
+	//need to fix this
+	let deletePlace = (userPlaceKeyId) => {
 		return $q( (resolve, reject) => {
-			if (placeId) {
-				$http.delete(`${FirebaseUrl}places/${placeId}.json`)
+			if (userPlaceKeyId) {
+				$http.delete(`${FirebaseUrl}user-places/${userPlaceKeyId}.json`)
 				.then( (data) => {
 					resolve(data);
 				})

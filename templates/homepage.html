@@ -1,46 +1,59 @@
 <div ng-include="'templates/navbar.html'"></div>
 
-<h2>My Places</h2>
-
-<button ng-click="playGame()">Play Game</button>
-
-<div>
-	<h4>Total Score: {{scoreSum}}</h4>
+<div class="row">
+  <div class="col-sm-3">
+    <h2>My Places</h2>
+  </div>
+  <div class="col-sm-3">
+    <button ng-click="playGame()">Play Game</button>
+  </div>
+  <div class="col-sm-6">
+    <h4>Total Score: {{scoreSum}}</h4>
+  </div>
 </div>
 
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th colspan="6">My Places</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="place in usersPlaces">
-      <th scope="row">{{place.counter}}</th>
-      <td>{{place.name}}</td>
-      <td><a ng-href="#!/place/{{place.id}}">Details</td>
-      <td><a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/text/{{place.id}}.pdf" target="_blank">Nomination</a></td>
-      <td><a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/photos/{{place.id}}.pdf" target="_blank">Photos</a></td>
-      <td><button ng-click="deletePlace(place.id)">✗</button></td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
 
-<div class="google-map">
-	<map center="[36.1627, -86.7816]" zoom="{{map.zoom}}"></map>
+  <div class="col-sm-5">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th colspan="5">My Places</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="place in usersPlaces">
+          <th scope="row">{{place.counter}}</th>
+          <td>{{place.name}}</td>
+          <td><a ng-href="#!/place/{{place.id}}">Details</a></td>
+          <td>Notes</td>
+          <td><button ng-click="deletePlace(userPlaceKeyId)">✗</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-sm-5">
+    <div class="google-map-home">
+    	<ng-map center="[36.1627, -86.7816]" zoom="11" zoom-control="false"></ng-map>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th colspan="6">My Recent Scores</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<tr ng-repeat="score in usersScores">
+          <td>{{score.score}}</td>
+          <td>{{score.date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
-
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th colspan="6">My Scores</th>
-    </tr>
-  </thead>
-  <tbody>
-  	<tr ng-repeat="score in usersScores">
-      <th scope="row">{{score.date}}</th>
-      <td>{{score.score}}</td>
-    </tr>
-  </tbody>
-</table>
 
