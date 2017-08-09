@@ -15,6 +15,30 @@ findIt.factory("GameFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
+	let getUsersPlaceIds = (currentUser) => {
+		return $q( (resolve, reject) => {
+			$http.get(`${FirebaseUrl}user-places.json?orderBy="uid"&equalTo="${currentUser}"`)
+			.then( (userPlaces) => {
+				resolve(userPlaces.data);
+			})
+			.catch( (err) => {
+				reject(err);
+			});
+		});
+	};
+
+	let getUsersPlaces = (placeId) => {
+		return $q( (resolve, reject) => {
+			$http.get(`${FirebaseUrl}places.json?orderBy="id"&equalTo="${placeId}"`)
+			.then( (usersPlaces) => {
+				resolve(usersPlaces.data);
+			})
+			.catch( (err) => {
+				reject(err);
+			});
+		});
+	};
+
 	let storeUsersScore = (userScoreObj) => {
 		return $q( (resolve, reject) => {
 			$http.post(`${FirebaseUrl}user-scores.json`,
@@ -55,6 +79,6 @@ findIt.factory("GameFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	return { getAllPlaces, storeUsersScore, storeUsersPlace, getPlaceDetail };
+	return { getAllPlaces, getUsersPlaces, getUsersPlaceIds, storeUsersScore, storeUsersPlace, getPlaceDetail };
 
 });
