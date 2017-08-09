@@ -82,6 +82,7 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
       score: score,
       uid: UserFactory.getUser(),
       date: Date().toString().slice(4, 15),
+      orderid: Date.now()
     };
 
     GameFactory.storeUsersScore(userScoreObj);

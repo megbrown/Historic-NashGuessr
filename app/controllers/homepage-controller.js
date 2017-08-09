@@ -56,7 +56,11 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 				userScoreObjArr.push(obj);
 				userTotalScoreArr.push(obj.score);
 			});
-			$scope.usersScores = userScoreObjArr;
+			userScoreObjArr.sort( function(a, b) {
+				return b.orderid - a.orderid;
+			});
+			let scoreArr = userScoreObjArr.slice(0,5);
+			$scope.usersScores = scoreArr;
 			getUsersTotalScore(userTotalScoreArr);
 		});
 	}
