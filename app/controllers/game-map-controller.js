@@ -81,10 +81,12 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
 
     userScoreObj = {
       score: score,
-      uid: UserFactory.getUser()
+      uid: UserFactory.getUser(),
+      date: Date().toString().slice(4, 15),
     };
 
     GameFactory.storeUsersScore(userScoreObj);
+    console.log("score", userScoreObj);
     $window.location.href = "#!/results";
   }
 

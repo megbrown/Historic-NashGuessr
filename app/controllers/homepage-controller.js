@@ -23,6 +23,7 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 	.then( (user) => {
 		currentUser = UserFactory.getUser();
 		getUsersPlaces();
+		getUsersScores();
 	});
 
 	function getUsersPlaces() {
@@ -45,5 +46,15 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 		});
 	}
 
+	function getUsersScores() {
+		GameFactory.getUsersScores(currentUser)
+		.then( (usersScoreObj) => {
+			let userScoreArr = [];
+			angular.forEach(usersScoreObj, function(obj) {
+				userScoreArr.push(obj);
+			});
+			$scope.usersScores = userScoreArr;
+		});
+	}
 
 });

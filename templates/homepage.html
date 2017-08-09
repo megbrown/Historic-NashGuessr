@@ -33,29 +33,13 @@
 <table class="table table-sm">
   <thead>
     <tr>
-      <th colspan="6">My Latest Scores</th>
+      <th colspan="6">My Scores</th>
     </tr>
   </thead>
   <tbody>
-  	<tr>
-      <th scope="row">1</th>
-      <td>100</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>75</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>100</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>0</td>
+  	<tr ng-repeat="score in usersScores">
+      <th scope="row">{{score.date}}</th>
+      <td>{{score.score}}</td>
     </tr>
   </tbody>
 </table>
