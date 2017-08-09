@@ -15,9 +15,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Place Name</td>
+    <tr ng-repeat="place in usersPlaces">
+      <th scope="row">{{place.counter}}</th>
+      <td>{{place.name}}</td>
       <td><a ng-href="#!/place/{{place.id}}">Details</td>
       <td><a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/text/{{place.id}}.pdf" target="_blank">Nomination</a></td>
       <td><a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/photos/{{place.id}}.pdf" target="_blank">Photos</a></td>

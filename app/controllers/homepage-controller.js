@@ -4,6 +4,7 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 
 	let currentUser = null;
 	let userPlaceArr = [];
+	let counter = 0;
 
 	$scope.playGame = () => {
 		$window.location.href = "#!/photo";
@@ -25,11 +26,13 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 			placeIdArr.forEach( (placeId) => {
 				GameFactory.getUsersPlaces(placeId)
 				.then( (userPlaceObj) => {
-					userPlaceArr.push(userPlaceObj);
+					angular.forEach(userPlaceObj, function(obj) {
+						obj.counter = counter += 1;
+						userPlaceArr.push(obj);
+					});
+				$scope.usersPlaces = userPlaceArr;
 				});
 			});
-				$scope.usersPlaces = userPlaceArr;
-				console.log("$scope.usersPlaces", $scope.usersPlaces);
 		});
 	}
 
