@@ -49,12 +49,19 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 	function getUsersScores() {
 		GameFactory.getUsersScores(currentUser)
 		.then( (usersScoreObj) => {
-			let userScoreArr = [];
+			let userScoreObjArr = [];
+			let userTotalScoreArr = [];
 			angular.forEach(usersScoreObj, function(obj) {
-				userScoreArr.push(obj);
+				userScoreObjArr.push(obj);
+				userTotalScoreArr.push(obj.score);
 			});
-			$scope.usersScores = userScoreArr;
+			$scope.usersScores = userScoreObjArr;
+			getUsersTotalScore(userTotalScoreArr);
 		});
+	}
+
+	function getUsersTotalScore(userTotalScoreArr) {
+		$scope.scoreSum = userTotalScoreArr.reduce((pv, cv) => pv+cv, 0);
 	}
 
 });
