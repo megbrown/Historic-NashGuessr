@@ -21,7 +21,7 @@
       <td><a ng-href="#!/place/{{place.id}}">Details</td>
       <td><a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/text/{{place.id}}.pdf" target="_blank">Nomination</a></td>
       <td><a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/photos/{{place.id}}.pdf" target="_blank">Photos</a></td>
-      <td ng-click="deletePlace()">✗</td>
+      <td><button ng-click="deletePlace(place.id)">✗</button></td>
     </tr>
   </tbody>
 </table>

@@ -79,6 +79,22 @@ findIt.factory("GameFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	return { getAllPlaces, getUsersPlaces, getUsersPlaceIds, storeUsersScore, storeUsersPlace, getPlaceDetail };
+	let deletePlace = (placeId) => {
+		return $q( (resolve, reject) => {
+			if (placeId) {
+				$http.delete(`${FirebaseUrl}places/${placeId}.json`)
+				.then( (data) => {
+					resolve(data);
+				})
+				.catch( (err) => {
+					reject(err);
+				});
+			} else {
+				console.log("Mistake deleting place");
+			}
+		});
+	};
+
+	return { getAllPlaces, getUsersPlaces, getUsersPlaceIds, storeUsersScore, storeUsersPlace, getPlaceDetail, deletePlace };
 
 });

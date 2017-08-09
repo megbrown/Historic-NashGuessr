@@ -10,6 +10,15 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 		$window.location.href = "#!/photo";
 	};
 
+	$scope.deletePlace = (placeId) => {
+		if ($window.confirm("Are you sure you want to delete this place?")) {
+			GameFactory.deletePlace(placeId)
+			.then( (data) => {
+				$window.location.reload(true);
+			});
+		}
+	};
+
 	UserFactory.isAuthenticated()
 	.then( (user) => {
 		currentUser = UserFactory.getUser();
