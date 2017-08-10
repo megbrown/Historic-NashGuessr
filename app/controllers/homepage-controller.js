@@ -32,12 +32,9 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 		GameFactory.getUsersPlaceIds(currentUser)
 		.then( (userPlaceObj) => {
 			angular.forEach(userPlaceObj, function(obj, key) {
-				console.log("key", key);
 				obj.FBkey = key;
 				placeIdArr.push(obj);
-				console.log("place id array", placeIdArr);
 				currentPlaceId = obj.placeid;
-				console.log("current place id 1", currentPlaceId);
 			});
 			placeIdArr.forEach( (idObj) => {
 				GameFactory.getUsersPlaces(idObj.placeid)
@@ -48,17 +45,10 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 						userPlaceArr.push(obj);
 					});
 				$scope.usersPlaces = userPlaceArr;
-				console.log("user place array", userPlaceArr);
 				});
 			});
 		});
 	}
-
-	// click delete
-	// get place id
-	// get all users places
-	// compare place id to users places
-	// then get user-place key for matching pair
 
 	function getUsersScores() {
 		GameFactory.getUsersScores(currentUser)

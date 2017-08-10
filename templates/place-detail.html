@@ -11,7 +11,7 @@
 		<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/photos/{{place.id}}.pdf" target="_blank">Photos</a>
 	</div>
 	<div class="col-md-2">
-		<button ng-click="savePlace()">Save place</button>
+		<button class="btn btn-secondary" ng-click="savePlace()">Save place</button>
 	</div>
 </div>
 
@@ -26,13 +26,16 @@
 	</div>
 </div>
 
-<button class="btn btn-secondary" ng-click="showDiv = !showDiv">New Note</button>
-<button class="btn btn-secondary" ng-click="editNote()">Edit Note</button>
-<div class="note-text"></div>
-<div ng-show="showDiv">
-	<textarea ng-model="place.note"></textarea>
-	<button class="btn btn-secondary" ng-click="saveNote(); showDiv = !showDiv">Submit</button>
+<div class="row">
+	<div class="col-md-12">
+		<h4>Notes:</h4>
+		<div class="notes">
+			<p>{{note}}</p>
+		</div>
+	</div>
 </div>
+
+
 
 
 

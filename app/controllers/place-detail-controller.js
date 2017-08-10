@@ -25,20 +25,25 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
   	console.log("error", err);
   });
 
-  $scope.savePlace = () => {
-  	let userPlaceObj = {
-			placeid: currentGameObj.id,
-			uid: UserFactory.getUser()
-		};
-		GameFactory.storeUsersPlace(userPlaceObj)
-    .then( (data) => {
-      $window.location.href = "#!/homepage";
+  let currentUser = UserFactory.getUser();
+  console.log(currentUser);
+
+  GameFactory.getUsersPlaceIds(currentUser)
+  .then( (userPlaces) => {
+    console.log("users places, place-detail-controller", userPlaces);
+    angular.forEach( userPlaces, function(obj) {
+      console.log("place-detail-controller, user places placeid", obj.placeid);
+      if (obj.placeid === $routeParams.placeId) {
+        console.log("its a match!", obj.placeid);
+        $scope.note = obj.note;
+      }
     });
-  };
-
-  $scope.saveNote = () => {
+  });
 
 
-  };
+// match to the place id which I have access to from $routeParams
+//     if userPlaceObj.placeid === $routeParams.placeId
+//     then $scope.note = userPlaceObj.note;
+
 
 });
