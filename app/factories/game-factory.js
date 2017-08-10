@@ -108,6 +108,23 @@ findIt.factory("GameFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	return { getAllPlaces, getUsersPlaces, getUsersPlaceIds, storeUsersScore, getUsersScores, storeUsersPlace, getPlaceDetail, deletePlace };
+	let addNoteToUserPlaces = (noteValue, FBkey) => {
+		return $q( (resolve, reject) => {
+			if (FBkey) {
+				$http.patch(`${FirebaseUrl}user-places/${FBkey}.json`,
+					angular.toJson({note: noteValue}))
+				.then( (data) => {
+					resolve(data);
+				})
+				.catch( (err) => {
+					reject(err);
+				});
+			} else {
+				console.log("There was a mistake trying to update the user-place with a note.");
+			}
+		});
+	};
+
+	return { getAllPlaces, getUsersPlaces, getUsersPlaceIds, storeUsersScore, getUsersScores, storeUsersPlace, getPlaceDetail, deletePlace, addNoteToUserPlaces };
 
 });

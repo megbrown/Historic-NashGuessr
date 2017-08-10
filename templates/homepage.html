@@ -26,9 +26,48 @@
           <th scope="row">{{place.counter}}</th>
           <td>{{place.name}}</td>
           <td><a ng-href="#!/place/{{place.id}}">Details</a></td>
-<!--           <td data-toggle="modal" data-target="#noteModal{{place.FBkey}}">Note</td> -->
-          <td data-toggle="modal" data-target="#noteModal">Note</td>
+
+          <td data-toggle="modal" data-target="#noteModal" ng-click="storeObj(place)">Note</td>
+
+
+<!--           <td data-toggle="modal" data-target="#noteModal">Note</td> -->
           <td><button class="btn btn-secondary" ng-click="deletePlace(place.FBkey)">✗</button></td>
+
+
+  <!-- <div class="modal fade" id='noteModal{{place.id}}' tabindex="-1" role="dialog" aria-labelledby="noteModal{{place.id}}Label" aria-hidden="true"> -->
+<div class="modal fade" id='noteModal' tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title capitalize" id="exampleModalLabel">{{selectedPlace.name}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div>{{selectedPlace.note}}</div>
+                <div ng-show="showDiv">
+                  <textarea ng-model="selectedPlace.note"></textarea>
+                  <button ng-click="addNote(selectedPlace); showDiv = !showDiv" class="btn btn-secondary">Submit</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" ng-click="showDiv = !showDiv">Edit</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
         </tr>
       </tbody>
     </table>
@@ -56,27 +95,7 @@
     </table>
   </div>
 
-<!--    <div class="modal fade" id='noteModal{{place.FBkey}}' tabindex="-1" role="dialog" aria-labelledby="noteModal{{place.FBkey}}Label" aria-hidden="true"> -->
-<div class="modal fade" id='noteModal' tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title capitalize" id="exampleModalLabel">Note</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="container-fluid">
-                <p>note here</p>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
 </div>
 

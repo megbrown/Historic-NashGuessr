@@ -31,8 +31,10 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 		let currentPlaceId;
 		GameFactory.getUsersPlaceIds(currentUser)
 		.then( (userPlaceObj) => {
+			console.log("userPlaceObj", userPlaceObj);
 			angular.forEach(userPlaceObj, function(obj, key) {
 				obj.FBkey = key;
+				// obj.note = userPlaceObj.note;
 				placeIdArr.push(obj);
 				currentPlaceId = obj.placeid;
 			});
@@ -42,9 +44,11 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 					angular.forEach(userPlaceObj, function(obj) {
 						obj.counter = counter += 1;
 						obj.FBkey = idObj.FBkey;
+						obj.note = idObj.note;
 						userPlaceArr.push(obj);
 					});
 				$scope.usersPlaces = userPlaceArr;
+				console.log("userPlaceArr now", userPlaceArr);
 				});
 			});
 		});
@@ -72,20 +76,30 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 		$scope.scoreSum = userTotalScoreArr.reduce( (pv, cv) => pv + cv, 0);
 	}
 
-	$scope.editNote = (userPlaceKeyId) => {
-		GameFactory.editNote(userPlaceKeyId)
-		.then( (data) => {
-			$window.location.reload(true);
-		});
+	// $scope.editNote = (userPlaceKeyId) => {
+	// 	GameFactory.editNote(userPlaceKeyId)
+	// 	.then( (data) => {
+	// 		$window.location.reload(true);
+	// 	});
+ //  };
+
+  $scope.addNote = (userObj) => {
+  	console.log("clicked submit", userObj);
+  	console.log("clicked submit", userObj.note);
+  	console.log("clicked submit", userObj.FBkey);
+  	GameFactory.addNoteToUserPlaces(userObj.note, userObj.FBkey)
+  	.then( (data) => {
+  		// $window.location.reload(true);
+  	});
   };
 
-  $scope.deleteNote = (userPlaceKeyId) => {
-  	if ($window.confirm("Are you sure you want to delete this note?")) {
-			GameFactory.deleteNote(userPlaceKeyId)
-			.then( (data) => {
-				$window.location.reload(true);
-			});
-		}
+  $scope.storeObj = (userObj) => {
+  	console.log("object? please", userObj);
+  	$scope.selectedPlace = userObj;
   };
+
+  // in HomepageController on click of modal - send useful info to a gamefactory for storage
+  // in ModalController - retrieve that info and put on scope
+  // save modal - send to the update funtion in game factory
 
 });

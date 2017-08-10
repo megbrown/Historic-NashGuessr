@@ -26,19 +26,24 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
   });
 
   let currentUser = UserFactory.getUser();
-  console.log(currentUser);
 
   GameFactory.getUsersPlaceIds(currentUser)
   .then( (userPlaces) => {
-    console.log("users places, place-detail-controller", userPlaces);
     angular.forEach( userPlaces, function(obj) {
-      console.log("place-detail-controller, user places placeid", obj.placeid);
       if (obj.placeid === $routeParams.placeId) {
-        console.log("its a match!", obj.placeid);
         $scope.note = obj.note;
       }
     });
   });
+
+  $scope.savePlace = () => {
+    let userPlaceObj = {
+      placeid: currentGameObj.id,
+      uid: UserFactory.getUser()
+    };
+    GameFactory.storeUsersPlace(userPlaceObj);
+    $window.location.href = "#!/homepage";
+  };
 
 
 // match to the place id which I have access to from $routeParams
