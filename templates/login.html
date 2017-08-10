@@ -1,14 +1,16 @@
 <div ng-include="'templates/navbar.html'"></div>
 
-<h1>Historic Places Finder</h1>
+<h1 class="title">Historic Places Finder <small>(Working Title)</small></h1>
 
-<!-- some image here -->
+<div class="cover-image">
+	<img src="../images/collage-nashville.png">
+</div>
 
-<h4>Test your knowledge of Nashville architectural history and development.</h4>
+<h4 class="subtitle">Test your knowledge of Nashville architectural history and development.</h4>
 
-<p>Please login to play or view your saved places</p>
+<p class="subtitle">Please login to play or view your saved places</p>
 
-<div>
-    <button type="button" ng-click="login()">Login with Google</button>
+<div class="center-button">
+    <button class="btn-secondary" type="button" ng-click="login()">Login with Google</button>
 </div>
 

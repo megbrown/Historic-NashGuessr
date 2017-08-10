@@ -5,7 +5,7 @@
     <h2>My Places</h2>
   </div>
   <div class="col-sm-3">
-    <button ng-click="playGame()">Play Game</button>
+    <button class="btn-secondary" ng-click="playGame()">Play Game</button>
   </div>
   <div class="col-sm-6">
     <h4>Total Score: {{scoreSum}}</h4>
@@ -26,8 +26,9 @@
           <th scope="row">{{place.counter}}</th>
           <td>{{place.name}}</td>
           <td><a ng-href="#!/place/{{place.id}}">Details</a></td>
-          <td data-toggle="modal" data-target="#noteModal{{userPlaceKeyId}}">Note</td>
-          <td><button class="btn btn-secondary" ng-click="deletePlace(userPlaceKeyId)">✗</button></td>
+<!--           <td data-toggle="modal" data-target="#noteModal{{place.FBkey}}">Note</td> -->
+          <td data-toggle="modal" data-target="#noteModal">Note</td>
+          <td><button class="btn btn-secondary" ng-click="deletePlace(place.FBkey)">✗</button></td>
         </tr>
       </tbody>
     </table>
@@ -55,7 +56,8 @@
     </table>
   </div>
 
-   <div class="modal fade" id='noteModal{{userPlaceKeyId}}' tabindex="-1" role="dialog" aria-labelledby="noteModal{{userPlaceKeyId}}Label" aria-hidden="true">
+<!--    <div class="modal fade" id='noteModal{{place.FBkey}}' tabindex="-1" role="dialog" aria-labelledby="noteModal{{place.FBkey}}Label" aria-hidden="true"> -->
+<div class="modal fade" id='noteModal' tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -66,12 +68,10 @@
             </div>
             <div class="modal-body">
               <div class="container-fluid">
-                <p>{{note}}</p>
+                <p>note here</p>
               </div>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-secondary edit-btn" ng-click="editNote(userPlaceKeyId)">Edit</button>
-              <button class="btn btn-secondary delete-btn right" ng-click="deleteNote(userPlaceKeyId)">Delete</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>

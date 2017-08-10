@@ -2,16 +2,16 @@
 
 findIt.controller("GameResultsController", function($scope, $timeout, $window, GameFactory, GameStorageFactory, UserFactory) {
 
-		let newGameObj = GameStorageFactory.getStoredGameObj();
+	let newGameObj = GameStorageFactory.getStoredGameObj();
 
-	  console.log(newGameObj);
+	console.log(newGameObj);
 
-	  $scope.score = newGameObj.score;
-	  $scope.message = newGameObj.message;
+	$scope.score = newGameObj.score;
+	$scope.message = newGameObj.message;
 
-	  $scope.marker = {
-	    position: [newGameObj.origLat, newGameObj.origLng]
-		};
+	$scope.marker = {
+	  position: [newGameObj.origLat, newGameObj.origLng]
+	};
 
 	$scope.playAgain = () => {
 		console.log("clicked 'play again");

@@ -2,11 +2,17 @@
 
 findIt.controller("PlaceDetailController", function($scope, $routeParams, $window, GameFactory, GameStorageFactory, UserFactory) {
 
-	let nashville = [36.1627, -86.7816];
+	 let currentGameObj = GameStorageFactory.getStoredGameObj();
 
-  $scope.map = {
-    center: nashville,
-    zoom: 13
+  // let nashville = [36.1627, -86.7816];
+
+  // $scope.map = {
+  //   center: nashville,
+  //   zoom: 13
+  // };
+
+  $scope.marker = {
+    position: [currentGameObj.origLat, currentGameObj.origLng]
   };
 
   GameFactory.getPlaceDetail($routeParams.placeId)
@@ -14,24 +20,25 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
     angular.forEach(place, function(obj) {
       $scope.place = obj;
     });
-  	console.log("detail place info", $scope.place);
-  	// $scope.place = place;
   })
   .catch( (err) => {
   	console.log("error", err);
   });
 
-  let newGameObj = GameStorageFactory.getStoredGameObj();
-
   $scope.savePlace = () => {
   	let userPlaceObj = {
-			placeid: newGameObj.id,
+			placeid: currentGameObj.id,
 			uid: UserFactory.getUser()
 		};
 		GameFactory.storeUsersPlace(userPlaceObj)
     .then( (data) => {
       $window.location.href = "#!/homepage";
     });
+  };
+
+  $scope.saveNote = () => {
+
+
   };
 
 });

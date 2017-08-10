@@ -20,9 +20,20 @@
 		<img src="../images/{{place.photo}}.png" height="400" width="auto">
 	</div>
 	<div class="col-md-5 google-map-detail">
-		<map center="[36.1627, -86.7816]" zoom="14" zoom-controll="false"></map>
+		<map center="[36.1627, -86.7816]" zoom="14" zoom-control="false">
+			<marker position="{{marker.position}}"></marker>
+		</map>
 	</div>
 </div>
+
+<button class="btn btn-secondary" ng-click="showDiv = !showDiv">New Note</button>
+<button class="btn btn-secondary" ng-click="editNote()">Edit Note</button>
+<div class="note-text"></div>
+<div ng-show="showDiv">
+	<textarea ng-model="place.note"></textarea>
+	<button class="btn btn-secondary" ng-click="saveNote(); showDiv = !showDiv">Submit</button>
+</div>
+
 
 
 

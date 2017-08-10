@@ -1,6 +1,6 @@
 "use strict";
 
-findIt.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
+findIt.factory("UserFactory", function($q, $http, FirebaseUrl, FBCreds) {
 
 	var config = {
 		apiKey: FBCreds.apiKey,
@@ -20,7 +20,7 @@ findIt.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
 					currentUser = user.uid;
 					resolve(true);
 				}
-				else { //on logout we need to set it back to null.
+				else {
 					currentUser = null;
 					resolve(false);
 				}
@@ -54,6 +54,6 @@ findIt.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
 		});
 	};
 
-	return {loginUser, isAuthenticated, getUser, logoutUser};
+	return { loginUser, isAuthenticated, getUser, logoutUser };
 
 });

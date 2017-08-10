@@ -71,7 +71,6 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   		score = 0;
   		message = "Just go home.";
   	}
-
     GameStorageFactory.storeScore(score, message);
     storeScore(score);
   }
@@ -83,9 +82,7 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
       date: Date().toString().slice(4, 15),
       orderid: Date.now()
     };
-
     GameFactory.storeUsersScore(userScoreObj);
-    console.log("score", userScoreObj);
     $window.location.href = "#!/results";
   }
 
