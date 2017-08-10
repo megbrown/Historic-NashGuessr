@@ -66,7 +66,23 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 	}
 
 	function getUsersTotalScore(userTotalScoreArr) {
-		$scope.scoreSum = userTotalScoreArr.reduce((pv, cv) => pv+cv, 0);
+		$scope.scoreSum = userTotalScoreArr.reduce( (pv, cv) => pv + cv, 0);
 	}
+
+	$scope.editNote = (userPlaceKeyId) => {
+		GameFactory.editNote(userPlaceKeyId)
+		.then( (data) => {
+			$window.location.reload(true);
+		});
+  };
+
+  $scope.deleteNote = (userPlaceKeyId) => {
+  	if ($window.confirm("Are you sure you want to delete this note?")) {
+			GameFactory.deleteNote(userPlaceKeyId)
+			.then( (data) => {
+				$window.location.reload(true);
+			});
+		}
+  };
 
 });

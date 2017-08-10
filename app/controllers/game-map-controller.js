@@ -74,7 +74,6 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
 
     GameStorageFactory.storeScore(score, message);
     storeScore(score);
-
   }
 
   function storeScore(score) {
