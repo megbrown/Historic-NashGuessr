@@ -41,8 +41,10 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
       placeid: currentGameObj.id,
       uid: UserFactory.getUser()
     };
-    GameFactory.storeUsersPlace(userPlaceObj);
-    $window.location.href = "#!/homepage";
+    GameFactory.storeUsersPlace(userPlaceObj)
+    .then( (data) => {
+      $window.location.href = "#!/homepage";
+    });
   };
 
 
