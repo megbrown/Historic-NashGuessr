@@ -41,5 +41,3 @@ findIt.config(($routeProvider)=>{
   })
   .otherwise('/');
 });
-
-
