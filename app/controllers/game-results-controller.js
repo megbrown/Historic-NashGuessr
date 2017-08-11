@@ -5,9 +5,6 @@ findIt.controller("GameResultsController", function($scope, $timeout, $window, G
 	let newGameObj = GameStorageFactory.getStoredGameObj();
 
 	NgMap.getMap().then(function(map) {
-  	// google.maps.event.addListener(map, 'click', function(e) {
-   //  	placeMarker(e.latLng, map);
-  	// });
 	});
 
 	console.log(newGameObj);
@@ -21,7 +18,7 @@ findIt.controller("GameResultsController", function($scope, $timeout, $window, G
 
 	$scope.playAgain = () => {
 		console.log("clicked 'play again");
-		$window.location.href = "#!/homepage";
+		$window.location.href = "#!/photo";
 	};
 
 	$scope.savePlace = () => {

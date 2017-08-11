@@ -9,7 +9,33 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   	google.maps.event.addListener(map, 'click', function(e) {
     	placeMarker(e.latLng, map);
   	});
+
+    // google.maps.event.addListener(map, 'click', function(event) {
+    //   placeMarker(event.latLng);
+    // });
+
 	});
+
+
+
+// var marker;
+
+// function placeMarker(location) {
+//   if ( marker ) {
+//     marker.setPosition(location);
+//   } else {
+//     marker = new google.maps.Marker({
+//       position: location,
+//       map: map
+//     });
+//   }
+// }
+
+// google.maps.event.addListener(map, 'click', function(event) {
+//   placeMarker(event.latLng);
+// });
+
+
 
 	function placeMarker(position, map) {
 		let marker = new google.maps.Marker({
