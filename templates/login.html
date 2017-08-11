@@ -1,4 +1,10 @@
-<div ng-include="'templates/navbar.html'"></div>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" ng-controller="NavController">
+	<a class="navbar-brand" ng-href="#!/homepage">
+		<img src="images/logo.png" width="75" height="auto" class="d-inline-block align-center logo" alt="Find It logo">
+	</a>
+</nav>
+
+<div class="container">
 
 <h1 class="title">Historic Places Finder <small>(Working Title)</small></h1>
 
@@ -11,6 +17,7 @@
 <p class="subtitle">Please login to play or view your saved places</p>
 
 <div class="center-button">
-    <button class="btn-secondary" type="button" ng-click="login()">Login with Google</button>
+   <button class="btn-secondary" type="button" ng-click="login()">Login with Google</button>
 </div>
 
+</div>

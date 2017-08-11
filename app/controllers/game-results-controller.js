@@ -1,8 +1,14 @@
 "use strict";
 
-findIt.controller("GameResultsController", function($scope, $timeout, $window, GameFactory, GameStorageFactory, UserFactory) {
+findIt.controller("GameResultsController", function($scope, $timeout, $window, GameFactory, GameStorageFactory, UserFactory, NgMap) {
 
 	let newGameObj = GameStorageFactory.getStoredGameObj();
+
+	NgMap.getMap().then(function(map) {
+  	// google.maps.event.addListener(map, 'click', function(e) {
+   //  	placeMarker(e.latLng, map);
+  	// });
+	});
 
 	console.log(newGameObj);
 

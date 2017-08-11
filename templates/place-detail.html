@@ -1,39 +1,41 @@
 <div ng-include="'templates/navbar.html'"></div>
 
-<div class="row">
-	<div class="col-md-4">
-		<h2>{{place.name}}</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h2>{{place.name}}</h2>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-secondary" ng-click="savePlace()">Save place</button>
+		</div>
+		<div class="col-md-3">
+			<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/text/{{place.id}}.pdf" target="_blank">National Register Nomination</a>
+		</div>
+		<div class="col-md-3">
+			<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/photos/{{place.id}}.pdf" target="_blank">Photos</a>
+		</div>
 	</div>
-	<div class="col-md-3">
-		<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/text/{{place.id}}.pdf" target="_blank">National Register Nomination</a>
-	</div>
-	<div class="col-md-3">
-		<a ng-href="https://npgallery.nps.gov/pdfhost/docs/nrhp/photos/{{place.id}}.pdf" target="_blank">Photos</a>
-	</div>
-	<div class="col-md-2">
-		<button class="btn btn-secondary" ng-click="savePlace()">Save place</button>
-	</div>
-</div>
 
-<div class="row">
-	<div class="place-detail-image col-md-7">
-		<img src="../images/{{place.photo}}.png" height="400" width="auto">
-	</div>
-	<div class="col-md-5 google-map-detail">
-		<map center="[36.1627, -86.7816]" zoom="14" zoom-control="false">
-			<marker position="{{marker.position}}"></marker>
-		</map>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-12">
-		<h4>Notes:</h4>
-		<div class="notes">
-			<p>{{note}}</p>
+	<div class="row">
+		<div class="place-detail-image col-md-7">
+			<img src="../images/{{place.photo}}.png" height="400" width="auto">
+		</div>
+		<div class="col-md-5">
+			<div class="google-map-detail">
+				<map center="[36.1627, -86.7816]" zoom="14" zoom-control="false">
+					<marker position="{{marker.position}}"></marker>
+				</map>
+			</div>
+			<div>
+				<h4>Notes:</h4>
+				<div class="notes">
+					<p>{{note}}</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+
 
 
 

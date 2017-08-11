@@ -1,20 +1,16 @@
-
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded" ng-controller="NavController">
 	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   	<span class="navbar-toggler-icon"></span>
 	</button>
 
 	<a class="navbar-brand" ng-href="#!/homepage">
-		<img src="images/logo.png" width="75" height="auto" class="d-inline-block align-center" alt="Find It logo"><span class="brand">Historic Places Finder</span>
+		<img src="images/logo.png" width="75" height="auto" class="d-inline-block align-center logo" alt="Find It logo"><span class="brand">Historic Places Finder</span>
 	</a>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
   		<li class="nav-item">
     		<a class="nav-link" ng-href="#!/homepage">My Places</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" ng-href="#!/photo">New Game</a>
   		</li>
       <li class="nav-item">
         <p class="nav-link" data-toggle="modal" data-target="#instructionsModal">Instructions</p>
@@ -26,23 +22,20 @@
 	</div>
 </nav>
 
-   <div class="modal fade" id='instructionsModal' tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title capitalize" id="exampleModalLabel">Instructions</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="container-fluid">
-                <p>Instructions for game go here</p>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
+<div class="modal fade" id='instructionsModal' tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title capitalize" id="exampleModalLabel">Instructions</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <p>Description and instructions for game will go here</p>
         </div>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

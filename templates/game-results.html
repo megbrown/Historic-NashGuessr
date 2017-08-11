@@ -1,14 +1,16 @@
 <div ng-include="'templates/navbar.html'"></div>
 
-<h2>Your score: {{score}}</h2>
-<h5>{{message}}</h5>
-
-<div class="google-map-results">
-	<map center="[36.1627, -86.7816]" zoom="13">
-		  <marker position="{{marker.position}}"></marker>
-	</map>
+<div class="container">
+	<h2 class="title">Your score: {{score}}</h2>
+	<h5 class="subtitle">{{message}}</h5>
+	<div class="google-map-results">
+		<map center="[36.1627, -86.7816]" zoom="13">
+			  <marker position="{{marker.position}}"></marker>
+		</map>
+	</div>
+	<div class="buttons-three">
+		<button class="btn-secondary" ng-click="playAgain()">Play again</button>
+		<button class="btn-secondary" ng-click="savePlace()">Save place</button>
+		<button class="btn-secondary" ng-click="seeDetail()">See details</button>
+	</div>
 </div>
-
-<button ng-click="playAgain()">Play again</button>
-<button ng-click="savePlace()">Save place</button>
-<button ng-click="seeDetail()">See details</button>

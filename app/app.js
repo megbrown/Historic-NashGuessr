@@ -1,7 +1,17 @@
 "use strict";
 
 let findIt = angular.module("FindIt", ["ngRoute", "ngMap"])
-.constant("FirebaseUrl", "https://historic-places-1501858376214.firebaseio.com/");
+.constant("FirebaseUrl", "https://historic-places-1501858376214.firebaseio.com/")
+.directive('autofocus', ['$timeout', function($timeout) {
+  return {
+    restrict: 'A',
+    link : function($scope, $element) {
+      $timeout(function() {
+        $element[0].focus();
+      });
+    }
+  };
+}]);
 
 findIt.config(($routeProvider)=>{
   $routeProvider
