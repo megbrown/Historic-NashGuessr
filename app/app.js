@@ -13,6 +13,19 @@ let findIt = angular.module("FindIt", ["ngRoute", "ngMap"])
   };
 }]);
 
+let isAuth = (UserFactory)  => {
+    return new Promise( (resolve, reject) => {
+        UserFactory.isAuthenticated()
+        .then( (userExistence) => {
+            if (userExistence) {
+                resolve();
+            } else {
+                reject();
+            }
+        });
+    });
+};
+
 findIt.config(($routeProvider)=>{
   $routeProvider
   .when("/", {
@@ -21,23 +34,28 @@ findIt.config(($routeProvider)=>{
   })
   .when("/homepage", {
     templateUrl: "templates/homepage.html",
-    controller: "HomepageController"
+    controller: "HomepageController",
+    resolve: {isAuth}
   })
   .when("/photo", {
     templateUrl: "templates/game-photo.html",
-    controller: "GamePhotoController"
+    controller: "GamePhotoController",
+    resolve: {isAuth}
   })
   .when("/map", {
   	templateUrl: "templates/game-map.html",
-    controller: "GameMapController"
+    controller: "GameMapController",
+    resolve: {isAuth}
   })
   .when("/results", {
   	templateUrl: "templates/game-results.html",
-  	controller: "GameResultsController"
+  	controller: "GameResultsController",
+    resolve: {isAuth}
   })
   .when("/place/:placeId", {
     templateUrl: "templates/place-detail.html",
-    controller: "PlaceDetailController"
+    controller: "PlaceDetailController",
+    resolve: {isAuth}
   })
   .otherwise('/');
 });

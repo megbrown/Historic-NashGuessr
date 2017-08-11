@@ -21,7 +21,7 @@ findIt.controller("GameResultsController", function($scope, $timeout, $window, G
 
 	$scope.playAgain = () => {
 		console.log("clicked 'play again");
-		$window.location.href = "#!/";
+		$window.location.href = "#!/homepage";
 	};
 
 	$scope.savePlace = () => {
