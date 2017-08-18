@@ -1,16 +1,57 @@
 @import "../lib/node_modules/tether/dist/css/tether.min.css"
 @import "../lib/node_modules/bootstrap/scss/bootstrap.scss"
 
+// font-family: 'Bitter', serif;
+// font-family: 'Montserrat', sans-serif;
+
+$white: #fdf5e6
+$black: #1d1d1d
+$accent: #fb958b
+
+/***** general *****/
 body, html
 	height: 100%
 	margin: 0
-	background-color: #1d1d1d
+	background-color: $black
 
 h1, h2, h3, h4, h5, h6, p, tr, td
-	color: #fff
+	color: $white
+
+/***** nav *****/
+.nav-color
+	background-color: $black
 
 .logo
-	margin-left: 80px
+	margin-left: 50px
+
+/***** login *****/
+
+.header
+	width: 649px
+	margin: 0 auto
+	padding: 45px 0 15px 0
+
+// .login-title
+// 	margin: 45px auto 15px auto
+
+.login-subtitle
+	font-family: 'Montserrat', sans-serif
+	padding-bottom: 10px
+	color: $white
+
+.login-text
+	font-family: 'Montserrat', sans-serif
+	padding-top: 10px
+	color: $white
+
+.login-button-container
+	width: 175px
+	margin: 0 auto
+
+.login-image
+	border-radius: 10px
+
+/***** maps *****/
 
 .google-map-game
 	height: 100%
@@ -27,7 +68,6 @@ h1, h2, h3, h4, h5, h6, p, tr, td
 .google-map-home
 	height: 100%
 	width: 400px
-	// margin: 25px auto
 	filter: grayscale(90%)
 
 .google-map-detail
@@ -43,7 +83,7 @@ h1, h2, h3, h4, h5, h6, p, tr, td
 	margin: 10px auto
 
 span.brand
-	margin-left: 20px
+	margin-left: 10px
 	margin-right: 450px
 
 .row
@@ -81,11 +121,13 @@ span.brand
 	margin: 0 auto
 
 button
-	border: 2px solid #FF8300
-	background-color: #1d1d1d
-	color: #FF8300
+	border: 2px solid $accent
+	background-color: $black
+	color: $accent
 	border-radius: 5px
 
 .dark-text
-	color: #1d1d1d
+	color: $black
+
+
 
