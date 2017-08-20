@@ -7,6 +7,7 @@
 $white: #fdf5e6
 $black: #1d1d1d
 $accent: #fb958b
+$subtleGrey: #9d9d9d
 
 /***** general *****/
 body, html
@@ -18,21 +19,39 @@ h1, h2, h3, h4, h5, h6, p, tr, td
 	color: $white
 
 /***** nav *****/
+.navbar
+	padding-top: 2rem
+
 .nav-color
 	background-color: $black
 
 .logo
-	margin-left: 50px
+	margin-left: 75px
+
+.navbar-brand
+	margin-left: 10px
+	margin-right: 450px
+
+.navbar-light .navbar-nav .nav-link
+	color: $subtleGrey
+
+.navbar-light:hover .navbar-nav:hover .nav-link:hover
+	color: $accent
+
+button
+	border: 2px solid $accent
+	background-color: $black
+	color: $accent
+	border-radius: 5px
+
+.dark-text
+	color: $black
 
 /***** login *****/
-
 .header
 	width: 649px
 	margin: 0 auto
 	padding: 45px 0 15px 0
-
-// .login-title
-// 	margin: 45px auto 15px auto
 
 .login-subtitle
 	font-family: 'Montserrat', sans-serif
@@ -50,6 +69,22 @@ h1, h2, h3, h4, h5, h6, p, tr, td
 
 .login-image
 	border-radius: 10px
+
+/***** homepage *****/
+.delete-button
+	border: 0px
+	padding: 5px 10px
+
+.faux-link:hover
+	text-decoration: underline
+	cursor: pointer
+
+.table thead th
+	border: none
+
+.table td, .table th
+	border-top: none
+
 
 /***** maps *****/
 
@@ -82,10 +117,6 @@ h1, h2, h3, h4, h5, h6, p, tr, td
 	height: auto
 	margin: 10px auto
 
-span.brand
-	margin-left: 10px
-	margin-right: 450px
-
 .row
 	margin: 50px 0
 
@@ -105,14 +136,6 @@ span.brand
 	width: 1000px
 	margin: 0 auto
 
-.faux-link:hover
-	text-decoration: underline
-	cursor: pointer
-
-.delete-button
-	border: 0px
-	padding: 5px 10px
-
 .submit-btn
 	cursor: pointer
 
@@ -120,14 +143,7 @@ span.brand
 	width: 300px
 	margin: 0 auto
 
-button
-	border: 2px solid $accent
-	background-color: $black
-	color: $accent
-	border-radius: 5px
 
-.dark-text
-	color: $black
 
 
 

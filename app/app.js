@@ -26,7 +26,7 @@ let isAuth = (UserFactory)  => {
     });
 };
 
-findIt.config(($routeProvider)=>{
+findIt.config(($routeProvider) => {
   $routeProvider
   .when("/", {
     templateUrl: "templates/login.html",

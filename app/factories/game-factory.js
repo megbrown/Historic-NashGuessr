@@ -91,7 +91,6 @@ findIt.factory("GameFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	//need to fix this
 	let deletePlace = (userPlaceKeyId) => {
 		return $q( (resolve, reject) => {
 			if (userPlaceKeyId) {
