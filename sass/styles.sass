@@ -18,6 +18,18 @@ body, html
 h1, h2, h3, h4, h5, h6, p, tr, td
 	color: $white
 
+.title
+	margin: 25px 0 10px 0
+	text-align: center
+
+.subtitle
+	margin: 10px 0 10px 0
+	text-align: center
+
+.center-button
+	width: 120px
+	margin: 0 auto
+
 /***** nav *****/
 .navbar
 	padding-top: 2rem
@@ -36,13 +48,14 @@ h1, h2, h3, h4, h5, h6, p, tr, td
 	color: $subtleGrey
 
 .navbar-light:hover .navbar-nav:hover .nav-link:hover
-	color: $accent
+	color: $white
 
 button
 	border: 2px solid $accent
 	background-color: $black
 	color: $accent
 	border-radius: 5px
+	cursor: pointer
 
 .dark-text
 	color: $black
@@ -70,6 +83,10 @@ button
 .login-image
 	border-radius: 10px
 
+.cover-image
+	width: 1000px
+	margin: 0 auto
+
 /***** homepage *****/
 .delete-button
 	border: 0px
@@ -85,6 +102,38 @@ button
 .table td, .table th
 	border-top: none
 
+.grey
+	color: $subtleGrey
+
+.small
+	font-size: .8em
+
+.big
+	font-size: 1.2em
+
+.place-link
+	color: $subtleGrey
+
+.place-link:visited
+	color: $subtleGrey
+	text-decoration: none
+
+.place-link:hover
+	color: $white
+	text-decoration: none
+
+.row
+	margin: 50px 0
+
+.unique-row
+	margin: 0
+
+.unique-row-top
+	margin-top: 50px
+	margin-bottom: 0
+
+.underline
+	text-decoration: underline
 
 /***** maps *****/
 
@@ -109,32 +158,19 @@ button
 	height: auto
 	width: 300px
 	margin-bottom: 22px
-	margin-top: 15px
 	filter: grayscale(90%)
 
+/***** game image *****/
 .place-image
 	width: 600px
 	height: auto
 	margin: 10px auto
+	border-radius: 10px
 
-.row
-	margin: 50px 0
+/***** place detail image *****/
+.place-detail-image
+	border-radius: 10px
 
-.title
-	margin: 25px 0 10px 0
-	text-align: center
-
-.subtitle
-	margin: 10px 0 10px 0
-	text-align: center
-
-.center-button
-	width: 200px
-	margin: 0 auto
-
-.cover-image
-	width: 1000px
-	margin: 0 auto
 
 .submit-btn
 	cursor: pointer
@@ -143,7 +179,8 @@ button
 	width: 300px
 	margin: 0 auto
 
-
+.cursor
+	cursor: pointer
 
 
 
