@@ -1,12 +1,12 @@
 <div ng-include="'templates/navbar.html'"></div>
 
 <div class="container">
-	<h3 class="title">Place a pin on the map where you think the place is located</h3>
+	<h3 class="title">Place a pin on the map where you think the place is located.</h3>
 	<div class="google-map-game">
-		<map center="[36.1627, -86.7816]" zoom="11" zoom-control="true">
+		<map center="[36.1627, -86.7816]" zoom="12" zoom-control="true">
 		</map>
 	</div>
 	<div class="center-button">
-		<button class="btn-secondary" ng-click="fetchDistance()">See results</button>
+		<button ng-click="fetchDistance()">See results</button>
 	</div>
 </div>

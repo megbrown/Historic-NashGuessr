@@ -17,22 +17,22 @@
       <table class="table table-sm">
         <thead>
           <tr>
-            <th colspan="5">My Saved Places</th>
+            <th colspan="5" class="underline">My Saved Places</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="place in usersPlaces">
-            <th scope="row">{{place.counter}}</th>
-            <td>{{place.name}}</td>
-            <td><a ng-href="#!/place/{{place.id}}">Details</a></td>
-            <td class="faux-link text-primary" data-toggle="modal" data-target="#noteModal" ng-click="storeObj(place)">Note</td>
-            <td><button class="btn btn-secondary delete-button" ng-click="deletePlace(place.FBkey)">✗</button></td>
+            <th scope="row"><span class="grey">{{place.counter}}</span></th>
+            <td class="big">{{place.name}}</td>
+            <td><a ng-href="#!/place/{{place.id}}" class="place-link">Details</a></td>
+            <td class="place-link cursor" data-toggle="modal" data-target="#noteModal" ng-click="storeObj(place)">Note</td>
+            <td><button class="btn delete-button" ng-click="deletePlace(place.FBkey)">✗</button></td>
 
             <div class="modal fade" id='noteModal' tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title capitalize" id="exampleModalLabel">Notes for {{selectedPlace.name}}</h5>
+                    <h5 class="modal-title capitalize dark-text" id="exampleModalLabel">Notes for {{selectedPlace.name}}</h5>
                   </div>
                   <div class="modal-body">
                     <div class="container-fluid">
@@ -65,13 +65,13 @@
       <table class="table table-sm">
         <thead>
           <tr>
-            <th colspan="6">My Recent Scores</th>
+            <th colspan="6" class="underline">My Recent Scores</th>
           </tr>
         </thead>
         <tbody>
         	<tr ng-repeat="score in usersScores">
-            <th>{{score.score}}</th>
-            <td><small>{{score.date}}</small></td>
+            <td class="grey small">{{score.date}}</td>
+            <th class="big">{{score.score}}</th>
           </tr>
         </tbody>
       </table>
