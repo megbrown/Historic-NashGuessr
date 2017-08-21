@@ -80,22 +80,28 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   function calculateScore(distance) {
   	if (distance <= 0.5) {
   		score = 100;
-  		message = "You know everything, don't you.";
+  		message = "Perfect score. Great job!";
   	} else if (distance > 0.5 && distance <= 1) {
   		score = 90;
-  		message = "Why didn't you get 100?";
-  	} else if (distance > 1 && distance <= 5) {
-  		score = 75;
-  		message = "Do better next time.";
-  	} else if (distance > 5 && distance <= 10) {
+  		message = "Almost there. Good work!";
+  	} else if (distance > 1 && distance <= 3) {
+      score = 80;
+      message = "You were so close! Good job";
+    } else if (distance > 3 && distance <= 5) {
+      score = 70;
+      message = "In the right vicinity. Good job!";
+    } else if (distance > 5 && distance <= 7) {
   		score = 50;
-  		message = "Do you like being average?";
+  		message = "Getting there. Why not try again?";
+  	} else if (distance > 7 && distance <= 10) {
+  		score = 35;
+  		message = "Good try! Better luck next time.";
   	} else if (distance > 10 && distance <= 20) {
   		score = 25;
-  		message = "Do you know anything?";
+  		message = "Good try! Better luck next time.";
   	} else {
   		score = 0;
-  		message = "Just go home.";
+  		message = "That was a tough one. Why not try again?";
   	}
     GameStorageFactory.storeScore(score, message);
     storeScore(score);
