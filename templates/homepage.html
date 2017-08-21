@@ -24,7 +24,7 @@
           <tr ng-repeat="place in usersPlaces">
             <th scope="row"><span class="grey">{{place.counter}}</span></th>
             <td class="big">{{place.name}}</td>
-            <td><a ng-href="#!/place/{{place.id}}" class="place-link">Details</a></td>
+            <td><a ng-href="#!/place/home/{{place.id}}" class="place-link">Details</a></td>
             <td class="place-link cursor" data-toggle="modal" data-target="#noteModal" ng-click="storeObj(place)">Note</td>
             <td><button class="btn delete-button" ng-click="deletePlace(place.FBkey)">✗</button></td>
 

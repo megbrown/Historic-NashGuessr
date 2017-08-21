@@ -3,6 +3,7 @@
 findIt.controller("PlaceDetailController", function($scope, $routeParams, $window, GameFactory, GameStorageFactory, UserFactory) {
 
 	 let currentGameObj = GameStorageFactory.getStoredGameObj();
+   let currentUser = UserFactory.getUser();
 
   // let nashville = [36.1627, -86.7816];
 
@@ -19,13 +20,12 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
   .then( (place) => {
     angular.forEach(place, function(obj) {
       $scope.place = obj;
+      console.log("the place", obj);
     });
   })
   .catch( (err) => {
   	console.log("error", err);
   });
-
-  let currentUser = UserFactory.getUser();
 
   GameFactory.getUsersPlaceIds(currentUser)
   .then( (userPlaces) => {
@@ -46,11 +46,5 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
       $window.location.href = "#!/homepage";
     });
   };
-
-
-// match to the place id which I have access to from $routeParams
-//     if userPlaceObj.placeid === $routeParams.placeId
-//     then $scope.note = userPlaceObj.note;
-
 
 });

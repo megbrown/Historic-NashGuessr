@@ -52,6 +52,11 @@ findIt.config(($routeProvider) => {
   	controller: "GameResultsController",
     resolve: {isAuth}
   })
+  .when("/place/home/:placeId", {
+    templateUrl: "templates/place-detail-home.html",
+    controller: "PlaceDetailController",
+    resolve: {isAuth}
+  })
   .when("/place/:placeId", {
     templateUrl: "templates/place-detail.html",
     controller: "PlaceDetailController",
