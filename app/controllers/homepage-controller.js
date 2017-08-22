@@ -1,6 +1,9 @@
 "use strict";
 
-findIt.controller("HomepageController", function($scope, $window, GameFactory, UserFactory) {
+findIt.controller("HomepageController", function($scope, $window, GameFactory, UserFactory, NgMap) {
+
+	NgMap.getMap().then(function(map) {
+	});
 
 	let currentUser = null;
 	let userPlaceArr = [];
@@ -33,7 +36,6 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 		.then( (userPlaceObj) => {
 			angular.forEach(userPlaceObj, function(obj, key) {
 				obj.FBkey = key;
-				// obj.note = userPlaceObj.note;
 				placeIdArr.push(obj);
 				currentPlaceId = obj.placeid;
 			});
@@ -47,8 +49,17 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 						userPlaceArr.push(obj);
 					});
 				$scope.usersPlaces = userPlaceArr;
+				showUserPlacePins(userPlaceArr);
 				});
 			});
+		});
+	}
+
+	function showUserPlacePins(userPlaceArr) {
+		userPlaceArr.forEach( function(obj) {
+			$scope.marker = {
+				position: [obj.lat, obj.long]
+			};
 		});
 	}
 

@@ -21,8 +21,8 @@
 		</div>
 		<div class="col-md-5">
 			<div class="google-map-detail">
-				<map center="[36.1627, -86.7816]" zoom="14" zoom-control="false">
-					<marker position="{{marker.position}}"></marker>
+				<map center="[{{place.lat}}, {{place.long}}]" zoom="15" zoom-control="true">
+					<marker position="[{{place.lat}}, {{place.long}}]"></marker>
 				</map>
 			</div>
 			<div>
