@@ -57,7 +57,9 @@
 
     <div class="col-sm-5">
       <div class="google-map-home">
-      	<ng-map center="[36.1627, -86.7816]" zoom="11" zoom-control="false"></ng-map>
+      	<ng-map center="[36.1627, -86.7816]" zoom="11" zoom-control="false">
+          <marker position="{{marker.position}}"></marker>
+        </ng-map>
       </div>
     </div>
 

@@ -2,15 +2,8 @@
 
 findIt.controller("PlaceDetailController", function($scope, $routeParams, $window, GameFactory, GameStorageFactory, UserFactory) {
 
-	 let currentGameObj = GameStorageFactory.getStoredGameObj();
-   let currentUser = UserFactory.getUser();
-
-  // let nashville = [36.1627, -86.7816];
-
-  // $scope.map = {
-  //   center: nashville,
-  //   zoom: 13
-  // };
+ let currentGameObj = GameStorageFactory.getStoredGameObj();
+ let currentUser = UserFactory.getUser();
 
   $scope.marker = {
     position: [currentGameObj.origLat, currentGameObj.origLng]
