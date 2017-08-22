@@ -21,17 +21,6 @@ findIt.controller("GameResultsController", function($scope, $timeout, $window, G
 		$window.location.href = "#!/photo";
 	};
 
-	$scope.savePlace = () => {
-		let userPlaceObj = {
-			placeid: newGameObj.id,
-			uid: UserFactory.getUser(),
-		};
-		GameFactory.storeUsersPlace(userPlaceObj)
-		.then( (data) => {
-			$window.location.href = "#!/homepage";
-		});
-	};
-
 	$scope.seeDetail = () => {
 		$window.location.href = `#!/place/${newGameObj.id}`;
 	};

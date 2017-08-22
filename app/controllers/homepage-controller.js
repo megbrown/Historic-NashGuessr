@@ -7,6 +7,7 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 
 	let currentUser = null;
 	let userPlaceArr = [];
+	let coordArr = [];
 	let counter = 0;
 
 	$scope.playGame = () => {
@@ -32,6 +33,7 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 	function getUsersPlaces() {
 		let placeIdArr = [];
 		let currentPlaceId;
+
 		GameFactory.getUsersPlaceIds(currentUser)
 		.then( (userPlaceObj) => {
 			angular.forEach(userPlaceObj, function(obj, key) {
@@ -39,6 +41,7 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 				placeIdArr.push(obj);
 				currentPlaceId = obj.placeid;
 			});
+			let totalCount = placeIdArr.length;
 			placeIdArr.forEach( (idObj) => {
 				GameFactory.getUsersPlaces(idObj.placeid)
 				.then( (userPlaceObj) => {
@@ -47,9 +50,11 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 						obj.FBkey = idObj.FBkey;
 						obj.note = idObj.note;
 						userPlaceArr.push(obj);
+						if (userPlaceArr.length == totalCount) {
+							showUserPlacePins(userPlaceArr);
+						}
 					});
 				$scope.usersPlaces = userPlaceArr;
-				showUserPlacePins(userPlaceArr);
 				});
 			});
 		});
@@ -57,10 +62,9 @@ findIt.controller("HomepageController", function($scope, $window, GameFactory, U
 
 	function showUserPlacePins(userPlaceArr) {
 		userPlaceArr.forEach( function(obj) {
-			$scope.marker = {
-				position: [obj.lat, obj.long]
-			};
+			coordArr.push([obj.lat, obj.long]);
 		});
+		$scope.userPlacesCoords = coordArr;
 	}
 
 	function getUsersScores() {
