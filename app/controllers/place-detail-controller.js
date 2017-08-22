@@ -1,9 +1,12 @@
 "use strict";
 
-findIt.controller("PlaceDetailController", function($scope, $routeParams, $window, GameFactory, GameStorageFactory, UserFactory) {
+findIt.controller("PlaceDetailController", function($scope, $routeParams, $window, GameFactory, GameStorageFactory, UserFactory, NgMap) {
 
- let currentGameObj = GameStorageFactory.getStoredGameObj();
- let currentUser = UserFactory.getUser();
+  NgMap.getMap().then(function(map) {
+  });
+
+  let currentGameObj = GameStorageFactory.getStoredGameObj();
+  let currentUser = UserFactory.getUser();
 
   $scope.marker = {
     position: [currentGameObj.origLat, currentGameObj.origLng]

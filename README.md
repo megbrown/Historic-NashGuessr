@@ -8,7 +8,7 @@ Historic NashGuessr gives you a random image from a list of 100 Nashville buildi
 
 If you enjoy this game, checkout [Geoguesser](https://geoguessr.com/), a great game from which I owe all my inspiration.
 
-## Application Flow
+## Application
 
 Upon intitialization, the user must log-in with Google in order to use the application.
 
@@ -28,19 +28,12 @@ Information about the National Register of Historic Places and the game can be a
 
 Clone this repository to your local machine
 
-Install necessary dependencies:
+Install necessary dependencies and compile necessary files:
 
 ```
 cd capstone/lib
 
 npm install
-
-```
-
-Compile necessary files:
-
-```
-cd lib
 
 grunt
 
