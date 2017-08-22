@@ -16,7 +16,6 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
   .then( (place) => {
     angular.forEach(place, function(obj) {
       $scope.place = obj;
-      console.log("the place", obj);
     });
   })
   .catch( (err) => {
@@ -40,6 +39,7 @@ findIt.controller("PlaceDetailController", function($scope, $routeParams, $windo
     GameFactory.storeUsersPlace(userPlaceObj)
     .then( (data) => {
       $window.location.href = "#!/homepage";
+      $window.location.reload(true);
     });
   };
 
