@@ -11,7 +11,6 @@ findIt.controller("GameMapController", function($scope, $window, NgMap, MapFacto
   	});
 	});
 
-
 	function placeMarker(position, map) {
 		let marker = new google.maps.Marker({
   		position: position,
